@@ -1,0 +1,213 @@
+*, ::before, ::after {
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --main-color: #62F5ED;
+    --secondary-color: #38AAA4;
+    --ternary-color: #BFC0C2;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.auto-center {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+.header {
+    background: #000;
+    box-shadow: 10px 10px 1px red;
+}
+.header .container {
+    color: var(--main-color);
+    font-weight: bold;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header .container .title {
+    font-size: 40px;
+}
+.header button {
+    background: var(--main-color);
+    color: black;
+    border: none;
+    font-size: 1.25rem;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+}
+@media screen and (max-width: 786px) {
+    .header button {
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+    }
+}
+
+.main {
+    background: var(--secondary-color);
+}
+.main .container {
+    min-height: calc(100vh - 120px);
+    display: grid;
+    grid-template-rows: 100px 1fr;
+}
+.main .container .addButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.main .container .addButton button {
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.5rem;
+    background: black;
+    color: var(--main-color);
+    font-weight: bold;
+    transition: 200ms box-shadow;
+    box-shadow: 5px 10px var(--main-color);
+}
+.main .container .addButton button:hover{
+    box-shadow: 0px 0px var(--main-color);
+    transform: scale(.95);
+}
+.main .container .booksGrid {
+    display: grid;
+    gap: 1rem;
+}
+
+.main .container .booksGrid .gridItem  {
+    display: flex;
+    flex-direction: column;
+    background: rgb(37, 37, 37, 0.9);
+    border-radius: 10px;
+    color: var(--main-color);
+    padding: 1rem;
+    height: 380px;
+}
+.main .container .booksGrid .gridItem p {
+    font-size: 1.5rem;
+    margin-right: 3rem;
+    margin: 0.5rem 0;
+    border: 1px solid var(--main-color);
+    color: var(--ternary-color);
+    padding: 1rem 0.5rem;
+}
+.main .container .booksGrid .gridItem p span {
+    font-weight: bold;
+    color: var(--main-color);
+    font-size: 1.5rem;
+}
+.main .container .booksGrid .gridItem button {
+    border: none;
+    margin: 0.5rem 0;
+    font-size: 2rem;
+    padding: 0.25rem 0;
+    border-radius: 10px;
+    background: var(--main-color);
+    font-weight: bold;
+}
+.main .container .booksGrid .gridItem .isRead {
+    background: rgb(0, 237, 47);
+}
+
+@media screen and (min-width: 600px){
+    .main .container .booksGrid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media screen and (min-width: 786px){
+    .main .container .booksGrid {
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+@media screen and (min-width: 992px){
+    .main .container .booksGrid {
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+.footer {
+    height: 40px;
+    background: #000;
+    color: var(--main-color);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+.footer a {
+    color: var(--secondary-color);
+}
+
+
+
+/* modal */
+
+.modal {
+    display: none;
+    background: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--main-color);
+    border: none;
+    padding: 1rem;
+    gap: 1rem 0;
+}
+.modal form h3 {
+    font-size: 2.5rem;
+}
+.modal form input {
+    font-size: 1.5rem;
+    padding: 1rem;
+    color: var(--main-color);
+    border-radius: 10px;
+    border: var(--secondary-color);
+    background: #000;
+}
+
+.modal form .isRead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    gap: 0 1rem;
+}
+.modal form .isRead input {
+    width: 20px;
+    height: 20px;
+}
+
+.modal form button {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    border: none;
+    padding: 0.75rem 2rem;
+    background: #000;
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.active {
+    display: flex;
+}
